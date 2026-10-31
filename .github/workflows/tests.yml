@@ -27,7 +27,7 @@ jobs:
       SCCACHE_DIR: /home/runner/.cache/sccache
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Set up prerequisites and environment
         run: |
@@ -53,7 +53,7 @@ jobs:
           echo ""
 
       - name: Cache cargo registry
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         continue-on-error: false
         with:
           path: |
@@ -62,7 +62,7 @@ jobs:
           key: pgrx-lintck-cargo-${{ runner.os }}-${{ hashFiles('**/Cargo.lock', '.github/workflows/tests.yml') }}
 
       - name: Cache sccache directory
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         continue-on-error: false
         with:
           path: /home/runner/.cache/sccache
@@ -118,7 +118,7 @@ jobs:
             rust: "beta"
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Set up prerequisites and environment
         run: |
@@ -203,7 +203,7 @@ jobs:
         run: sudo chmod a+rwx `/usr/lib/postgresql/$PG_VER/bin/pg_config --pkglibdir` `/usr/lib/postgresql/$PG_VER/bin/pg_config --sharedir`/extension /var/run/postgresql/
 
       - name: Cache cargo registry
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         continue-on-error: false
         with:
           path: |
@@ -212,7 +212,7 @@ jobs:
           key: pgrx-unit-tests-cargo-${{ runner.os }}-${{ hashFiles('**/Cargo.lock', '.github/workflows/tests.yml') }}
 
       - name: Cache sccache directory
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         continue-on-error: false
         with:
           path: /home/runner/.cache/sccache
@@ -324,7 +324,7 @@ jobs:
         postgres: [ 17 ]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Set up prerequisites and environment
         run: |
@@ -381,7 +381,7 @@ jobs:
         run: sudo chmod a+rwx `/usr/lib/postgresql/$PG_VER/bin/pg_config --pkglibdir` `/usr/lib/postgresql/$PG_VER/bin/pg_config --sharedir`/extension /var/run/postgresql/
 
       - name: Cache cargo registry
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         continue-on-error: false
         with:
           path: |
@@ -420,7 +420,7 @@ jobs:
       PG_VER: 15
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Set up prerequisites and environment
         run: |
@@ -467,7 +467,7 @@ jobs:
           echo ""
 
       - name: Cache cargo registry
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         continue-on-error: false
         with:
           path: |
@@ -476,7 +476,7 @@ jobs:
           key: pgrx-cargo_init_tests-cargo-${{ runner.os }}-${{ hashFiles('**/Cargo.lock', '.github/workflows/tests.yml') }}
 
       - name: Cache sccache directory
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         continue-on-error: false
         with:
           path: /home/runner/.cache/sccache
@@ -552,7 +552,7 @@ jobs:
         postgresql: [ 15, 16 ]
 
     steps:
-      - uses: Homebrew/actions/setup-homebrew@main
+      - uses: Homebrew/actions/setup-homebrew@c262868c096d909fc278daa87ed9772967331ea3 # main
 
       # install postgres with homebrew, but do't let homebrew do an update too.  The update
       # process not only takes forever, but it tends to fail when the internet changes
@@ -565,7 +565,7 @@ jobs:
         env:
           FORMULA: postgresql@${{ matrix.postgresql }}
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Set up prerequisites and environment
         run: |
@@ -596,14 +596,14 @@ jobs:
 
 
       - name: Cache sccache directory
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         continue-on-error: false
         with:
           path: /Users/runner/Library/Caches/Mozilla.sccache
           key: pgrx-sccache-${{matrix.os}}-${{ hashFiles('**/Cargo.lock', '.github/workflows/tests.yml', '.cargo/config.toml') }}
 
       - name: Cache cargo directory
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: |
             ~/.cargo
@@ -657,7 +657,7 @@ jobs:
         postgresql: [ 13, 17 ]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Set up prerequisites and environment
         run: |
@@ -678,14 +678,14 @@ jobs:
 
 
       - name: Cache sccache directory
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         continue-on-error: false
         with:
           path: C:\Users\runneradmin\sccache
           key: pgrx-sccache-${{matrix.os}}-${{ hashFiles('**/Cargo.lock', '.github/workflows/tests.yml', '.cargo/config.toml') }}
 
       - name: Cache cargo directory
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: |
             ~/.cargo
